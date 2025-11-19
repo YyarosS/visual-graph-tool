@@ -3,7 +3,6 @@ import sys
 import os
 import requests
 import gzip
-import io
 
 from urllib.parse import urlparse
 
@@ -62,20 +61,21 @@ def main():
         "--package-name", "-n",
         type=str,
         required=True,
-        help="Имя анализируемого пакета (например, mylib)"
+        help="Имя анализируемого пакета"
     )
 
     parser.add_argument(
         "--repo-url", "-u",
         type=str,
         required=True,
-        help="URL репозитория или путь к локальному файлу"
+        help="Путь к файлу описания графа репозитория"
     )
 
     parser.add_argument(
         "--mode", "-m",
         type=str,
         choices=["local", "remote", "mock"],
+        default=locals,
         required=True,
         help="Режим работы с репозиторием: local, remote, mock"
     )
