@@ -90,21 +90,21 @@ def main():
 
     arguments = parser.parse_args()
 
-    # # Валидация URL или пути
-    # if arguments.mode in ["remote"]:
-    #     if not is_valid_url(arguments.repo_url):
-    #         parser.error(f"Некорректный URL: {arguments.repo_url}")
-    # elif arguments.mode in ["local"]:
-    #     if not os.path.exists(arguments.repo_url):
-    #         parser.error(f"Файл или директория не найдена: {arguments.repo_url}")
-    # elif arguments.mode in ["mock"]:
-    #     # В mock режиме URL может быть любым, даже фиктивным
-    #     pass
+    # Валидация URL или пути
+    if arguments.mode in ["remote"]:
+        if not is_valid_url(arguments.repo_url):
+            parser.error(f"Некорректный URL: {arguments.repo_url}")
+    elif arguments.mode in ["local"]:
+        if not os.path.exists(arguments.repo_url):
+            parser.error(f"Файл или директория не найдена: {arguments.repo_url}")
+    elif arguments.mode in ["mock"]:
+        # В mock режиме URL может быть любым, даже фиктивным
+        pass
 
-    # print(f"package_name={arguments.package_name}")
-    # print(f"repo_url={arguments.repo_url}")
-    # print(f"mode={arguments.mode}")
-    # print(f"output={arguments.output}")
+    print(f"package_name={arguments.package_name}")
+    print(f"repo_url={arguments.repo_url}")
+    print(f"mode={arguments.mode}")
+    print(f"output={arguments.output}")
 
     if arguments.mode == "remote":
         try:
